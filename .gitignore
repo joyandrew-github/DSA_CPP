@@ -1,0 +1,43 @@
+# Build artifacts
+*.exe
+*.ilk
+*.obj
+*.pdb
+*.idb
+*.ipdb
+*.pch
+*.ncb
+*.suo
+*.user
+*.aps
+*.bak
+*.bsc
+*.sbr
+*.tlog
+*.log
+*.lastbuildstate
+
+# Visual Studio / VS Code
+.vscode/
+*.vcxproj.user
+*.vcxproj.filters
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Other build outputs
+build/
+out/
+bin/
+Debug/
+Release/
+x64/
+x86/
+
+# OS files
+.DS_Store
+Thumbs.db
