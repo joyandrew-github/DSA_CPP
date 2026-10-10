@@ -445,7 +445,7 @@ This ensures **only one `Person` subobject** exists in `WorkingStudent`.
 
 ```mermaid
 graph TD
-    P[Person (single)] --> E[Employee]
+    P[Person] --> E[Employee]
     P --> S[Student]
     E --> WS[WorkingStudent]
     S --> WS
