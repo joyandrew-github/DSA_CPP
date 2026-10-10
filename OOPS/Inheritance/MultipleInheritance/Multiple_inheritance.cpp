@@ -1,38 +1,30 @@
-// 2. Multilevel inheritance
-// Parent → child → grandchild
-
-// Multilevel inheritance occurs when a class inherits from another derived class, creating an inheritance chain.
+// Multiple parents → one child
+// Multiple inheritance occurs when one derived class inherits from two or more base classes.
 #include<iostream>
 using namespace std;
-class Person{
+class Printer{
     public:
-    string name;
-    Person(string n):name(n){}
-    // Person(string n){
-    //     name=n;
-    // }
+    void print(){
+        cout<<"Printing Document"<<endl;
+    }
 };
-class Employee: public Person{
+class Scanner{
     public:
-    int employeeId;
-
-    Employee(string n,int id):Person(n),employeeId(id){}
+    void scan(){
+        cout<<"Scanning Document"<<endl;
+    }
 };
 
-class Manager : public Employee{
+class AllInOne:public Scanner,public Printer{
     public:
-    Manager(string n,int id):Employee(n,id){}
-
-    void display(){
-        cout<<"Name :"<<name<<endl;
-        cout<<"Employee ID :"<<employeeId<<endl;
-        cout<<"Role :Manager"<<endl;
+    void copy(){
+        cout<<"Copyinggg Document"<<endl;
     }
 };
 int main(){
-
-    Manager m("Joy",101);
-    m.display();
+    AllInOne printer;
+    printer.print();
+    printer.copy();
+    printer.scan();
     return 0;
-
 }
