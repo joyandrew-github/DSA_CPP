@@ -11,15 +11,9 @@ Types of constructors in C++
 A constructor that can be called without passing arguments.
 Example: Student()
 
-
-
-
 2. Parameterized Constructor
 A constructor that accepts arguments to initialize an object with specific values.
 Example: Student(int a)
-
-
-
 
 3. Copy Constructor
 Creates a new object using an existing object of the same class.
