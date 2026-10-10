@@ -1,4 +1,4 @@
-﻿# Inheritance in C++ — Complete Guide
+# Inheritance in C++ — Complete Guide
 
 Inheritance is one of the four fundamental pillars of Object-Oriented Programming (OOP), along with **Encapsulation**, **Polymorphism**, and **Abstraction**.
 
@@ -22,19 +22,19 @@ In simple words, inheritance allows us to **reuse existing code** instead of wri
 
 ## Types of Inheritance in C++
 
-`mermaid
+```mermaid
 graph TD
     A[Inheritance] --> B[Single Inheritance]
     A --> C[Multiple Inheritance]
     A --> D[Multilevel Inheritance]
     A --> E[Hierarchical Inheritance]
     A --> F[Hybrid Inheritance]
-`
+```
 
 ### 1. Single Inheritance
 One derived class inherits from one base class.
 
-`cpp
+```cpp
 class Animal {
 public:
     void eat() { cout << "Eating..." << endl; }
@@ -44,12 +44,12 @@ class Dog : public Animal {
 public:
     void bark() { cout << "Barking..." << endl; }
 };
-`
+```
 
 ### 2. Multiple Inheritance
 One derived class inherits from multiple base classes.
 
-`cpp
+```cpp
 class Engine {
 public:
     void start() { cout << "Engine started" << endl; }
@@ -64,12 +64,12 @@ class Car : public Engine, public Wheels {
 public:
     void drive() { cout << "Car driving" << endl; }
 };
-`
+```
 
 ### 3. Multilevel Inheritance
 A class is derived from a class which is also derived from another class.
 
-`cpp
+```cpp
 class Grandparent {
 public:
     void gpMethod() { cout << "Grandparent" << endl; }
@@ -84,12 +84,12 @@ class Child : public Parent {
 public:
     void cMethod() { cout << "Child" << endl; }
 };
-`
+```
 
 ### 4. Hierarchical Inheritance
 Multiple derived classes inherit from a single base class.
 
-`cpp
+```cpp
 class Shape {
 public:
     void draw() { cout << "Drawing shape" << endl; }
@@ -98,18 +98,18 @@ public:
 class Circle : public Shape { /* ... */ };
 class Rectangle : public Shape { /* ... */ };
 class Triangle : public Shape { /* ... */ };
-`
+```
 
 ### 5. Hybrid Inheritance
 Combination of two or more types of inheritance.
 
-`cpp
+```cpp
 // Combines multiple + multilevel + hierarchical
 class A { /* ... */ };
 class B : public A { /* ... */ };
 class C : public A { /* ... */ };
 class D : public B, public C { /* ... */ };  // Diamond problem possible
-`
+```
 
 ---
 
@@ -121,13 +121,13 @@ class D : public B, public C { /* ... */ };  // Diamond problem possible
 | **protected** | protected | protected | private |
 | **private** | Not accessible | Not accessible | Not accessible |
 
-> **Best Practice:** Use public inheritance for **is-a** relationships. Use protected/private inheritance rarely (for implementation inheritance).
+> **Best Practice:** Use `public` inheritance for **is-a** relationships. Use `protected`/`private` inheritance rarely (for implementation inheritance).
 
 ---
 
 ## Constructor/Destructor Order
 
-`cpp
+```cpp
 class Base {
 public:
     Base() { cout << "Base constructor" << endl; }
@@ -145,7 +145,7 @@ public:
 // Derived constructor
 // Derived destructor
 // Base destructor
-`
+```
 
 ---
 
@@ -168,7 +168,7 @@ public:
 
 3. **Constructor/destructor order?** → Base constructor → Derived constructor; Derived destructor → Base destructor.
 
-4. **Can we inherit constructors?** → Yes, using using Base::Base; (C++11).
+4. **Can we inherit constructors?** → Yes, using `using Base::Base;` (C++11).
 
 ---
 
