@@ -7,9 +7,10 @@ using namespace std;
 class Person{
     public:
     string name;
-    Person(string n):name(n){
-
-    }
+    Person(string n):name(n){}
+    // Person(string n){
+    //     name=n;
+    // }
 };
 class Employee: public Person{
     public:

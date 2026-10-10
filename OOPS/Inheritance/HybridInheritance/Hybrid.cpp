@@ -1,0 +1,2 @@
+
+// Combination of inheritance types
