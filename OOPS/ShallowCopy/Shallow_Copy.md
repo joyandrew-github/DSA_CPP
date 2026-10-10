@@ -24,13 +24,13 @@ A comprehensive guide to understanding shallow copy, its implications, and how t
 ```mermaid
 graph TD
     subgraph "Before Modification"
-        S1[Student s1] --> M1[marks: 0x7FF...]
+        S1[Student s1] --> M1[marks]
         S2[Student s2] --> M1
         M1 --> VAL1[Value: 90]
     end
     
     subgraph "After *s2.marks = 50"
-        S1A[Student s1] --> M1A[marks: 0x7FF...]
+        S1A[Student s1] --> M1A[marks]
         S2A[Student s2] --> M1A
         M1A --> VAL2[Value: 50]
     end
