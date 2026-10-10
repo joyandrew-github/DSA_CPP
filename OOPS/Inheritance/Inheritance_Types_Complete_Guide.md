@@ -16,9 +16,52 @@ A comprehensive overview of all five inheritance types with structure diagrams, 
 
 ---
 
+## Inheritance Types Overview Diagram
+
+```mermaid
+graph TD
+    subgraph Single["Single Inheritance"]
+        S1[Base Class A] --> S2[Derived Class B]
+    end
+    
+    subgraph MultiLevel["Multilevel Inheritance"]
+        ML1[Grandparent A] --> ML2[Parent B]
+        ML2 --> ML3[Child C]
+    end
+    
+    subgraph Hierarchical["Hierarchical Inheritance"]
+        H1[Base Class A] --> H2[Derived B]
+        H1 --> H3[Derived C]
+        H1 --> H4[Derived D]
+    end
+    
+    subgraph Multiple["Multiple Inheritance"]
+        M1[Base Class A] --> M3[Derived Class C]
+        M2[Base Class B] --> M3
+    end
+    
+    subgraph Hybrid["Hybrid Inheritance"]
+        HY1[Person A] --> HY2[Employee B]
+        HY1 --> HY3[Student C]
+        HY2 --> HY4[WorkingStudent D]
+        HY3 --> HY4
+    end
+```
+
+---
+
 ## 1. Single Inheritance
 
 ### Structure
+
+```mermaid
+graph TD
+    A[Base Class A] --> B[Derived Class B]
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+```
+
+### ASCII Structure
 ```
 Base Class (A)
     │
@@ -59,6 +102,17 @@ int main() {
 ## 2. Multilevel Inheritance
 
 ### Structure
+
+```mermaid
+graph TD
+    A[Grandparent A] --> B[Parent B]
+    B --> C[Child C]
+    style A fill:#e1f5fe
+    style B fill:#fff3e0
+    style C fill:#f3e5f5
+```
+
+### ASCII Structure
 ```
 Grandparent (A)
     │
@@ -112,6 +166,19 @@ int main() {
 ## 3. Hierarchical Inheritance
 
 ### Structure
+
+```mermaid
+graph TD
+    A[Base Class A] --> B[Derived B]
+    A --> C[Derived C]
+    A --> D[Derived D]
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#f3e5f5
+    style D fill:#f3e5f5
+```
+
+### ASCII Structure
 ```
         Base Class (A)
        /      |      \
@@ -174,6 +241,17 @@ int main() {
 ## 4. Multiple Inheritance
 
 ### Structure
+
+```mermaid
+graph TD
+    A[Base Class A] --> C[Derived Class C]
+    B[Base Class B] --> C
+    style A fill:#e1f5fe
+    style B fill:#e1f5fe
+    style C fill:#f3e5f5
+```
+
+### ASCII Structure
 ```
 Base Class A      Base Class B
       │              │
@@ -221,6 +299,20 @@ int main() {
 ## 5. Hybrid Inheritance
 
 ### Structure
+
+```mermaid
+graph TD
+    A[Person A] --> B[Employee B]
+    A --> C[Student C]
+    B --> D[WorkingStudent D]
+    C --> D
+    style A fill:#e1f5fe
+    style B fill:#fff3e0
+    style C fill:#fff3e0
+    style D fill:#f3e5f5
+```
+
+### ASCII Structure
 ```
         Person (A)
        /         \
@@ -290,6 +382,18 @@ int main() {
 ### The Problem
 Without `virtual`, hybrid inheritance creates **two copies** of the base class:
 
+```mermaid
+graph TD
+    P1[Person copy 1] --> E[Employee]
+    P2[Person copy 2] --> S[Student]
+    E --> WS[WorkingStudent]
+    S --> WS
+    style P1 fill:#ffcdd2
+    style P2 fill:#ffcdd2
+    style WS fill:#fff9c4
+```
+
+### ASCII Structure
 ```
 Person (copy 1)    Person (copy 2)
       │                 │
@@ -307,6 +411,18 @@ class Student : virtual public Person { ... };
 ```
 
 This ensures **only one `Person` subobject** exists in `WorkingStudent`.
+
+### Virtual Inheritance Structure
+
+```mermaid
+graph TD
+    P[Person (single)] --> E[Employee]
+    P --> S[Student]
+    E --> WS[WorkingStudent]
+    S --> WS
+    style P fill:#c8e6c9
+    style WS fill:#c8e6c9
+```
 
 ---
 
@@ -330,6 +446,57 @@ This ensures **only one `Person` subobject** exists in `WorkingStudent`.
 4. **Keep inheritance hierarchies shallow** (max 2-3 levels)
 5. **Use `override` keyword** for virtual functions (C++11+)
 6. **Make base class destructors `virtual`** for polymorphic deletion
+
+---
+
+## Complete Inheritance Types Summary Diagram
+
+```mermaid
+graph TD
+    subgraph "Single"
+        S1[Base] --> S2[Derived]
+    end
+    
+    subgraph "Multilevel"
+        ML1[Grandparent] --> ML2[Parent]
+        ML2 --> ML3[Child]
+    end
+    
+    subgraph "Hierarchical"
+        H1[Base] --> H2[Derived 1]
+        H1 --> H3[Derived 2]
+        H1 --> H4[Derived 3]
+    end
+    
+    subgraph "Multiple"
+        M1[Base 1] --> M3[Derived]
+        M2[Base 2] --> M3
+    end
+    
+    subgraph "Hybrid"
+        HY1[Base] --> HY2[Derived 1]
+        HY1 --> HY3[Derived 2]
+        HY2 --> HY4[Final]
+        HY3 --> HY4
+    end
+    
+    style S1 fill:#e1f5fe
+    style S2 fill:#f3e5f5
+    style ML1 fill:#e1f5fe
+    style ML2 fill:#fff3e0
+    style ML3 fill:#f3e5f5
+    style H1 fill:#e1f5fe
+    style H2 fill:#f3e5f5
+    style H3 fill:#f3e5f5
+    style H4 fill:#f3e5f5
+    style M1 fill:#e1f5fe
+    style M2 fill:#e1f5fe
+    style M3 fill:#f3e5f5
+    style HY1 fill:#e1f5fe
+    style HY2 fill:#fff3e0
+    style HY3 fill:#fff3e0
+    style HY4 fill:#f3e5f5
+```
 
 ---
 
