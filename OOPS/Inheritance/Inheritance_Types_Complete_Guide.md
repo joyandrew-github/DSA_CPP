@@ -46,6 +46,14 @@ graph TD
         HY2 --> HY4[WorkingStudent D]
         HY3 --> HY4
     end
+    
+    classDef baseClass fill:#E1F5FE,color:#263238,stroke:#0288D1,stroke-width:2px
+    classDef intermediateClass fill:#FFF3E0,color:#263238,stroke:#0288D1,stroke-width:2px
+    classDef derivedClass fill:#F3E5F5,color:#263238,stroke:#0288D1,stroke-width:2px
+    
+    class S1,ML1,H1,M1,M2,HY1 baseClass
+    class ML2,HY2,HY3 intermediateClass
+    class S2,ML3,H2,H3,H4,M3,HY4 derivedClass
 ```
 
 ---
@@ -57,8 +65,12 @@ graph TD
 ```mermaid
 graph TD
     A[Base Class A] --> B[Derived Class B]
-    style A fill:#e1f5fe
-    style B fill:#f3e5f5
+    
+    classDef baseClass fill:#E1F5FE,color:#263238,stroke:#0288D1,stroke-width:2px
+    classDef derivedClass fill:#F3E5F5,color:#263238,stroke:#0288D1,stroke-width:2px
+    
+    class A baseClass
+    class B derivedClass
 ```
 
 ### ASCII Structure
@@ -107,9 +119,14 @@ int main() {
 graph TD
     A[Grandparent A] --> B[Parent B]
     B --> C[Child C]
-    style A fill:#e1f5fe
-    style B fill:#fff3e0
-    style C fill:#f3e5f5
+    
+    classDef baseClass fill:#E1F5FE,color:#263238,stroke:#0288D1,stroke-width:2px
+    classDef intermediateClass fill:#FFF3E0,color:#263238,stroke:#0288D1,stroke-width:2px
+    classDef derivedClass fill:#F3E5F5,color:#263238,stroke:#0288D1,stroke-width:2px
+    
+    class A baseClass
+    class B intermediateClass
+    class C derivedClass
 ```
 
 ### ASCII Structure
@@ -172,10 +189,12 @@ graph TD
     A[Base Class A] --> B[Derived B]
     A --> C[Derived C]
     A --> D[Derived D]
-    style A fill:#e1f5fe
-    style B fill:#f3e5f5
-    style C fill:#f3e5f5
-    style D fill:#f3e5f5
+    
+    classDef baseClass fill:#E1F5FE,color:#263238,stroke:#0288D1,stroke-width:2px
+    classDef derivedClass fill:#F3E5F5,color:#263238,stroke:#0288D1,stroke-width:2px
+    
+    class A baseClass
+    class B,C,D derivedClass
 ```
 
 ### ASCII Structure
@@ -246,9 +265,12 @@ int main() {
 graph TD
     A[Base Class A] --> C[Derived Class C]
     B[Base Class B] --> C
-    style A fill:#e1f5fe
-    style B fill:#e1f5fe
-    style C fill:#f3e5f5
+    
+    classDef baseClass fill:#E1F5FE,color:#263238,stroke:#0288D1,stroke-width:2px
+    classDef derivedClass fill:#F3E5F5,color:#263238,stroke:#0288D1,stroke-width:2px
+    
+    class A,B baseClass
+    class C derivedClass
 ```
 
 ### ASCII Structure
@@ -306,10 +328,14 @@ graph TD
     A --> C[Student C]
     B --> D[WorkingStudent D]
     C --> D
-    style A fill:#e1f5fe
-    style B fill:#fff3e0
-    style C fill:#fff3e0
-    style D fill:#f3e5f5
+    
+    classDef baseClass fill:#E1F5FE,color:#263238,stroke:#0288D1,stroke-width:2px
+    classDef intermediateClass fill:#FFF3E0,color:#263238,stroke:#0288D1,stroke-width:2px
+    classDef derivedClass fill:#F3E5F5,color:#263238,stroke:#0288D1,stroke-width:2px
+    
+    class A baseClass
+    class B,C intermediateClass
+    class D derivedClass
 ```
 
 ### ASCII Structure
@@ -388,9 +414,12 @@ graph TD
     P2[Person copy 2] --> S[Student]
     E --> WS[WorkingStudent]
     S --> WS
-    style P1 fill:#ffcdd2
-    style P2 fill:#ffcdd2
-    style WS fill:#fff9c4
+    
+    classDef problemClass fill:#FFCDD2,color:#263238,stroke:#C62828,stroke-width:2px
+    classDef warningClass fill:#FFF9C4,color:#263238,stroke:#F57F17,stroke-width:2px
+    
+    class P1,P2 problemClass
+    class WS warningClass
 ```
 
 ### ASCII Structure
@@ -420,8 +449,15 @@ graph TD
     P --> S[Student]
     E --> WS[WorkingStudent]
     S --> WS
-    style P fill:#c8e6c9
-    style WS fill:#c8e6c9
+    
+    classDef baseClass fill:#E1F5FE,color:#263238,stroke:#0288D1,stroke-width:2px
+    classDef intermediateClass fill:#FFF3E0,color:#263238,stroke:#0288D1,stroke-width:2px
+    classDef derivedClass fill:#F3E5F5,color:#263238,stroke:#0288D1,stroke-width:2px
+    classDef solutionClass fill:#C8E6C9,color:#263238,stroke:#2E7D32,stroke-width:3px
+    
+    class P solutionClass
+    class E,S intermediateClass
+    class WS derivedClass
 ```
 
 ---
@@ -480,22 +516,13 @@ graph TD
         HY3 --> HY4
     end
     
-    style S1 fill:#e1f5fe
-    style S2 fill:#f3e5f5
-    style ML1 fill:#e1f5fe
-    style ML2 fill:#fff3e0
-    style ML3 fill:#f3e5f5
-    style H1 fill:#e1f5fe
-    style H2 fill:#f3e5f5
-    style H3 fill:#f3e5f5
-    style H4 fill:#f3e5f5
-    style M1 fill:#e1f5fe
-    style M2 fill:#e1f5fe
-    style M3 fill:#f3e5f5
-    style HY1 fill:#e1f5fe
-    style HY2 fill:#fff3e0
-    style HY3 fill:#fff3e0
-    style HY4 fill:#f3e5f5
+    classDef baseClass fill:#E1F5FE,color:#263238,stroke:#0288D1,stroke-width:2px
+    classDef intermediateClass fill:#FFF3E0,color:#263238,stroke:#0288D1,stroke-width:2px
+    classDef derivedClass fill:#F3E5F5,color:#263238,stroke:#0288D1,stroke-width:2px
+    
+    class S1,ML1,H1,M1,M2,HY1 baseClass
+    class ML2,HY2,HY3 intermediateClass
+    class S2,ML3,H2,H3,H4,M3,HY4 derivedClass
 ```
 
 ---
