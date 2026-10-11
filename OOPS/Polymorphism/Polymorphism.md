@@ -26,7 +26,7 @@ The same person behaves differently depending on the situation.
 
 ## Types of Polymorphism in C++
 
-`mermaid
+```mermaid
 graph TD
     A[Polymorphism] --> B[Compile-Time Polymorphism]
     A --> C[Runtime Polymorphism]
@@ -35,7 +35,7 @@ graph TD
     C --> F[Function Overriding]
     C --> G[Virtual Functions]
     C --> H[Base-Class Pointers/References]
-`
+```
 
 ### 1. Compile-Time Polymorphism (Static Binding)
 
@@ -46,7 +46,7 @@ The compiler determines which function or operator to use at **compile time**.
 | **Function Overloading** | Multiple functions with the same name but different parameters |
 | **Operator Overloading** | Redefining operators for user-defined types |
 
-`cpp
+```cpp
 // Function Overloading
 class Calculator {
 public:
@@ -64,7 +64,7 @@ public:
 private:
     double real, imag;
 };
-`
+```
 
 ### 2. Runtime Polymorphism (Dynamic Binding)
 
@@ -73,10 +73,10 @@ The program determines which overridden virtual function to call at **runtime**.
 | Type | Description |
 |------|-------------|
 | **Function Overriding** | Derived class provides specific implementation of base class virtual function |
-| **Virtual Functions** | Base class functions marked irtual to enable dynamic dispatch |
+| **Virtual Functions** | Base class functions marked **virtual** to enable dynamic dispatch |
 | **Base-Class Pointers/References** | Used to call overridden functions through base class interface |
 
-`cpp
+```cpp
 // Runtime Polymorphism Example
 class Shape {
 public:
@@ -103,7 +103,7 @@ Shape* shapes[] = { new Circle(5), new Rectangle(4, 6) };
 for (auto* shape : shapes) {
     std::cout << shape->area() << std::endl;  // Dynamic dispatch
 }
-`
+```
 
 ---
 
