@@ -12,7 +12,9 @@ int main()
     }
     int i = 0;
     for (int j = 1; j < arr.size(); j++)
-    {
+    {   
+        //same element -> do nothing
+        //diff element --> i++ arr[i] = arr[j];
         if (arr[j] != arr[i])
         {
             i++;
@@ -21,7 +23,7 @@ int main()
     }
     for (int x = 0; x <= i; x++)
     {
-        cout << arr[x] << " ";
+        cout << arr[x] << " "<<endl;
     }
     cout << "Unique Elements count" << i + 1;
     return 0;
