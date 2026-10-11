@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
+//Boyer Moore voting algorithm
 int main() {
     vector<int> nums = {2, 2, 1, 1, 2, 2, 2};
 
