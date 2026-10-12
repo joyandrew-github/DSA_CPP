@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -8,14 +9,15 @@ public:
     string name;
     int mark1, mark2;
 
-    Student(string n, int m1, int m2) : name(n), mark1(m1), mark2(m2) {}
+    Student(string n, int m1, int m2)
+        : name(n), mark1(m1), mark2(m2) {}
 };
 
 // Responsibility 2: Calculate marks
 class MarksCalculator
 {
 public:
-    int calculateTotalMarks(const Student s)
+    int calculateTotalMarks(const Student& s)
     {
         return s.mark1 + s.mark2;
     }
@@ -25,10 +27,10 @@ public:
 class ReportPrinter
 {
 public:
-    void printReport(const Student s, int total)
+    void printReport(const Student& s, int total)
     {
-        cout << "Student  :" << s.name << endl;
-        cout << "Total Marks :" << total << endl;
+        cout << "Student      : " << s.name << endl;
+        cout << "Total Marks  : " << total << endl;
     }
 };
 
@@ -36,21 +38,25 @@ public:
 class StudentRepository
 {
 public:
-    void save(const Student s)
+    void save(const Student& s)
     {
-        cout << "Saving to Joy DB.............." << endl;
+        cout << "Saving " << s.name
+             << " to Joy DB.............." << endl;
     }
 };
+
 int main()
 {
     Student s("Joy", 88, 90);
+
     MarksCalculator m;
     ReportPrinter p;
-    MarksCalculator mc;
     StudentRepository sr;
 
     int total = m.calculateTotalMarks(s);
+
     p.printReport(s, total);
     sr.save(s);
+
     return 0;
 }
