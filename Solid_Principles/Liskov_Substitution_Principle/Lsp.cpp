@@ -50,3 +50,8 @@ int main(){
     makeBirdFly(sparrow);
 
 }
+
+
+
+// Liskov Substitution Principle (LSP): A child class should be replaceable with its parent class without breaking the program's expected behavior.
+// In simple words: Child classes must behave as expected wherever their parent class is used.
