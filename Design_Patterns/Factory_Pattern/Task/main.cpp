@@ -20,11 +20,12 @@
 
 int main()
 {
-    static std::unique_ptr<NotificationCreator> creator = std::make_unique<SMSCreator>();
-    static std::unique_ptr<NotificationCreator> creator2 = std::make_unique<PushCreator>();
+     std::unique_ptr<NotificationCreator> creator = std::make_unique<SMSCreator>();
+     std::unique_ptr<NotificationCreator> creator2 = std::make_unique<PushCreator>();
 
     auto notification = creator->createNotification();
     auto notification2=creator2->createNotification();
+
     notification->send("Hello Joy");
     notification2->send("Hello Juli");
     return 0;
