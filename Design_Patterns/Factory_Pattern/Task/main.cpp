@@ -25,7 +25,6 @@ int main()
 
     auto notification = creator->createNotification();
     auto notification2=creator2->createNotification();
-
     notification->send("Hello Joy");
     notification2->send("Hello Juli");
     return 0;
