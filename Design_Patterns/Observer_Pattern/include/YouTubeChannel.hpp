@@ -2,14 +2,17 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cstddef>
+#include <string>
 #include "Observer.hpp"
 
 class YouTubeChannel
 {
-public:
+private:
     std::vector<Observer *> observers;
     std::string latestVideo;
 
+public:
     void subscribe(Observer *observer)
     {
         if (observer == nullptr)
@@ -64,7 +67,9 @@ public:
 private:
     void notifyObservers()
     {
-        for (Observer *observer : observers)
+        auto snapshot = observers;
+
+        for (Observer *observer : snapshot)
         {
             observer->update(latestVideo);
         }
