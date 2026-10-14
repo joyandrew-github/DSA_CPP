@@ -3,6 +3,31 @@
 *.o
 *.obj
 
+# CMake build directories
+build/
+*/build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+*.opensdf
+*.sdf
+*.suo
+*.user
+*.ncb
+*.pdb
+*.idb
+*.ipch
+*.aps
+*.bak
+*.log
+*.tlog
+*.lastbuildstate
+
 # VS Code
 .vscode/*
 !.vscode/tasks.json
