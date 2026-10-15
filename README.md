@@ -15,25 +15,75 @@ DSA/
 │
 ├── Design_Patterns/              # Gang of Four Design Patterns
 │   ├── Adapter_Pattern/          # Structural: Interface compatibility
+│   │   └── Adapter.md            # Documentation
 │   ├── Decorator_Pattern/        # Structural: Dynamic behavior addition
+│   │   ├── CMakeLists.txt        # CMake build configuration
+│   │   ├── Decorator.md          # Documentation
+│   │   ├── build/                # Build output
+│   │   ├── include/              # Header files (Coffee example)
+│   │   ├── src/                  # Source files (Coffee example)
+│   │   └── Task/                 # Notification system example
+│   │       ├── CMakeLists.txt
+│   │       ├── include/          # Headers (Notification, Decorators)
+│   │       └── src/main.cpp      # Main implementation
 │   ├── Factory_Pattern/          # Creational: Object creation abstraction
+│   │   ├── Factory.md            # Documentation
+│   │   ├── *.hpp                 # Payment implementations
+│   │   ├── main.cpp              # Basic example
+│   │   └── Task/                 # Notification factory example
+│   │       ├── *.hpp             # Notification creators & factory
+│   │       └── main.cpp
 │   ├── Observer_Pattern/         # Behavioral: Event notification
+│   │   ├── CMakeLists.txt        # CMake build configuration
+│   │   ├── Observer.md           # Documentation
+│   │   ├── README.md             # Additional docs
+│   │   ├── build/                # Build output
+│   │   ├── include/              # Header files
+│   │   ├── src/                  # Source files
+│   │   └── Task/                 # Additional example
+│   │       ├── CMakeLists.txt
+│   │       ├── include/
+│   │       └── src/
 │   ├── Singleton_Pattern/        # Creational: Single instance guarantee
+│   │   └── Singleton.md          # Documentation
 │   └── Strategy_Pattern/         # Behavioral: Algorithm interchangeability
+│       ├── Strategy.md           # Documentation
+│       ├── *.hpp                 # Payment strategies
+│       ├── main.cpp              # Basic example
+│       └── Task/                 # Discount strategy example
+│           ├── *.hpp             # Discount strategies
+│           └── main.cpp
 │
 ├── OOPS/                         # Object-Oriented Programming Concepts
 │   ├── Abstraction/              # Abstract classes & interfaces
+│   │   └── Abstraction.md
 │   ├── Access Specifiers/        # public, private, protected
 │   ├── Constructor/              # Constructor types & initialization
+│   │   └── Constructor.md
 │   ├── Deconstructor/            # Destructors & cleanup
+│   │   ├── Deconstructor.md
+│   │   └── Constructor_Vs_Destructor.md
 │   ├── Deep_Copy/                # Deep copy implementation
+│   │   └── Deep_Copy.md
 │   ├── Diamond_Ambiguity/        # Virtual inheritance solution
+│   │   └── Diamond.md
 │   ├── Encapsulation/            # Data hiding & access control
+│   │   └── Encapsulation_in_CPP.md
 │   ├── Inheritance/              # Inheritance types & examples
+│   │   ├── Inheritance.md
+│   │   └── Inheritance_Types_Complete_Guide.md
 │   ├── MemoryAllocation_DOCS/    # Stack vs Heap allocation
+│   │   ├── CompileTimeMemoryAllocation.md
+│   │   ├── MemoryAllocation.md
+│   │   └── RuntimeMemoryAllocation.md
 │   ├── Polymorphism/             # Compile-time & runtime polymorphism
+│   │   └── Polymorphism.md
 │   ├── ShallowCopy/              # Shallow copy & pitfalls
+│   │   ├── Shallow_Copy.md
+│   │   └── Shallow_vs_Deep_Copy_Comparison.md
 │   ├── Static/                   # Static members & methods
+│   │   ├── Static.md
+│   │   └── StaticMethod.md
 │   ├── Virtual/                  # Virtual functions & vtables
 │   └── WhyOOPS.md                # Why OOP matters
 │
@@ -44,6 +94,8 @@ DSA/
 │   ├── Dependency_Inversion_Principle/
 │   ├── Inversion_Dependency_Principle/
 │   └── Task/                     # Practical E-commerce example
+│       ├── Ecommerce.cpp         # Full SOLID implementation
+│       └── Ecommerce.exe
 │
 └── grad-joi-delivery-cpp/        # External project (ignored by git)
 ```
@@ -52,14 +104,14 @@ DSA/
 
 ## 🎯 Design Patterns
 
-| Pattern | Category | Description | Documentation |
-|---------|----------|-------------|---------------|
-| **Factory** | Creational | Centralized object creation, hides instantiation logic | [Factory.md](Design_Patterns/Factory_Pattern/Factory.md) |
-| **Singleton** | Creational | Ensures single instance with global access | [Singleton.md](Design_Patterns/Singleton_Pattern/Singleton.md) |
-| **Adapter** | Structural | Makes incompatible interfaces work together | [Adapter.md](Design_Patterns/Adapter_Pattern/Adapter.md) |
-| **Decorator** | Structural | Adds behavior dynamically without subclassing | [Decorator.md](Design_Patterns/Decorator_Pattern/Decorator.md) |
-| **Observer** | Behavioral | One-to-many dependency with automatic notification | [Observer.md](Design_Patterns/Observer_Pattern/Observer.md) |
-| **Strategy** | Behavioral | Encapsulates interchangeable algorithms | [Strategy.md](Design_Patterns/Strategy_Pattern/Strategy.md) |
+| Pattern | Category | Description | Documentation | Examples |
+|---------|----------|-------------|---------------|----------|
+| **Factory** | Creational | Centralized object creation, hides instantiation logic | [Factory.md](Design_Patterns/Factory_Pattern/Factory.md) | Basic + Notification Factory (Task/) |
+| **Singleton** | Creational | Ensures single instance with global access | [Singleton.md](Design_Patterns/Singleton_Pattern/Singleton.md) | - |
+| **Adapter** | Structural | Makes incompatible interfaces work together | [Adapter.md](Design_Patterns/Adapter_Pattern/Adapter.md) | - |
+| **Decorator** | Structural | Adds behavior dynamically without subclassing | [Decorator.md](Design_Patterns/Decorator_Pattern/Decorator.md) | Coffee + Notification System (Task/) |
+| **Observer** | Behavioral | One-to-many dependency with automatic notification | [Observer.md](Design_Patterns/Observer_Pattern/Observer.md) | Basic + Task example |
+| **Strategy** | Behavioral | Encapsulates interchangeable algorithms | [Strategy.md](Design_Patterns/Strategy_Pattern/Strategy.md) | Payment + Discount System (Task/) |
 
 ### Pattern Quick Reference
 
@@ -112,6 +164,23 @@ Behavioral Patterns (Communication)
 | Majority Element | `majority_element.cpp` | Easy |
 | Binary Search | `binary_search.cpp` | Easy |
 | Linear Search | `linear_search.cpp` | Easy |
+| Is Sorted | `is_sorted.cpp` | Easy |
+| Left Rotate | `left_rotate.cpp` | Easy |
+| Max Consecutive | `max_consecutive.cpp` | Easy |
+| Maximum | `maximum.cpp` | Easy |
+| Mini and Max | `mini_and_max.cpp` | Easy |
+| Minimum in Rotated Sorted Array | `minium_in_rotated_sorted_array.cpp` | Medium |
+| Missing Number | `missing_num.cpp` | Easy |
+| Movie Star | `movie_star.cpp` | Medium |
+| Remove Duplicates | `remove_duplicates.cpp` | Easy |
+| Reverse Array | `reverse_array.cpp` | Easy |
+| Right Rotate | `right_rotate.cpp` | Easy |
+| Right Rotate by K | `right_rotate_by_k.cpp` | Easy |
+| Search in Rotated Sorted Array | `search_in_rotated_sorted_array.cpp` | Medium |
+| Second Largest | `second_largest.cpp` | Easy |
+| Sort Array | `sort_array.cpp` | Easy |
+| Subarray Maximum Size K | `subarray_maximum_size_k.cpp` | Medium |
+| Union of Sorted Arrays | `union_of_sorted_array.cpp` | Easy |
 
 ### Linked Lists
 | Problem | File |
@@ -128,6 +197,7 @@ Behavioral Patterns (Communication)
 | First Unique Character | `first_unique_character.cpp` |
 | Reverse String | `reverse_string.cpp` |
 | Ransom Note | `ransome_note.cpp` |
+| Longest Common Prefix | `longest_common_prefix.cpp` |
 
 ---
 
@@ -137,15 +207,16 @@ Behavioral Patterns (Communication)
 |-------|---------------|--------------|
 | **Abstraction** | [Abstraction.md](OOPS/Abstraction/Abstraction.md) | Abstract classes, pure virtual functions, interfaces |
 | **Encapsulation** | [Encapsulation_in_CPP.md](OOPS/Encapsulation/Encapsulation_in_CPP.md) | Data hiding, getters/setters, access specifiers |
-| **Inheritance** | [Inheritance.md](OOPS/Inheritance/Inheritance.md) | Single, multiple, multilevel, hierarchical, hybrid |
+| **Inheritance** | [Inheritance.md](OOPS/Inheritance/Inheritance.md), [Complete Guide](OOPS/Inheritance/Inheritance_Types_Complete_Guide.md) | Single, multiple, multilevel, hierarchical, hybrid |
 | **Polymorphism** | [Polymorphism.md](OOPS/Polymorphism/Polymorphism.md) | Compile-time (overloading), runtime (virtual functions) |
 | **Constructor** | [Constructor.md](OOPS/Constructor/Constructor.md) | Default, parameterized, copy, move, delegation |
-| **Destructor** | [Deconstructor.md](OOPS/Deconstructor/Deconstructor.md) | Cleanup, virtual destructors, RAII |
-| **Static** | [Static.md](OOPS/Static/Static.md) | Static members, methods, initialization |
+| **Destructor** | [Deconstructor.md](OOPS/Deconstructor/Deconstructor.md), [Constructor vs Destructor](OOPS/Deconstructor/Constructor_Vs_Destructor.md) | Cleanup, virtual destructors, RAII |
+| **Static** | [Static.md](OOPS/Static/Static.md), [StaticMethod.md](OOPS/Static/StaticMethod.md) | Static members, methods, initialization |
 | **Virtual** | [Virtual/](OOPS/Virtual/) | Virtual functions, vtable, override, final |
-| **Memory Allocation** | [MemoryAllocation.md](OOPS/MemoryAllocation_DOCS/MemoryAllocation.md) | Stack vs Heap, new/delete, smart pointers |
-| **Shallow vs Deep Copy** | [Shallow_vs_Deep_Copy_Comparison.md](OOPS/ShallowCopy/Shallow_vs_Deep_Copy_Comparison.md) | Copy constructor, assignment operator, rule of 3/5 |
-| **Diamond Problem** | [Diamond_Ambiguity/](OOPS/Diamond_Ambiguity/) | Virtual inheritance, ambiguity resolution |
+| **Memory Allocation** | [MemoryAllocation.md](OOPS/MemoryAllocation_DOCS/MemoryAllocation.md), [Compile-time](OOPS/MemoryAllocation_DOCS/CompileTimeMemoryAllocation.md), [Runtime](OOPS/MemoryAllocation_DOCS/RuntimeMemoryAllocation.md) | Stack vs Heap, new/delete, smart pointers |
+| **Shallow vs Deep Copy** | [Shallow_Copy.md](OOPS/ShallowCopy/Shallow_Copy.md), [Deep_Copy.md](OOPS/Deep_Copy/Deep_Copy.md), [Comparison](OOPS/ShallowCopy/Shallow_vs_Deep_Copy_Comparison.md) | Copy constructor, assignment operator, rule of 3/5 |
+| **Diamond Problem** | [Diamond.md](OOPS/Diamond_Ambiguity/Diamond.md) | Virtual inheritance, ambiguity resolution |
+| **Why OOP** | [WhyOOPS.md](OOPS/WhyOOPS.md) | Benefits and importance of OOP |
 
 ---
 
@@ -162,6 +233,7 @@ Behavioral Patterns (Communication)
 ### Practical Example
 - **E-commerce System** → [Task/Ecommerce.cpp](Solid_Principles/Task/Ecommerce.cpp)
   - Demonstrates all 5 SOLID principles in a real-world scenario
+  - Includes compiled executable: `Ecommerce.exe`
 
 ---
 
@@ -169,11 +241,12 @@ Behavioral Patterns (Communication)
 
 ### Prerequisites
 - C++17 compatible compiler (GCC 7+, Clang 5+, MSVC 19.1+)
-- CMake 3.10+ (for some projects)
+- CMake 3.10+ (for CMake-based projects)
 - Git
 
 ### Compile & Run Examples
 
+#### Simple Single-File Examples
 ```bash
 # Compile a single file
 g++ -std=c++17 -o output Design_Patterns/Factory_Pattern/Task/main.cpp
@@ -185,7 +258,45 @@ g++ -std=c++17 -o output Design_Patterns/Factory_Pattern/Task/main.cpp
 Design_Patterns/Factory_Pattern/Task/main.exe
 ```
 
-### Build with CMake (where available)
+#### CMake-Based Projects (Decorator, Observer)
+```bash
+# Decorator Pattern
+cd Design_Patterns/Decorator_Pattern
+mkdir build && cd build
+cmake ..
+cmake --build . --config Debug
+./Debug/ObserverPattern.exe  # Note: executable name from CMakeLists.txt
+
+# Observer Pattern
+cd Design_Patterns/Observer_Pattern
+mkdir build && cd build
+cmake ..
+cmake --build . --config Debug
+./Debug/ObserverPattern.exe
+```
+
+#### Factory Pattern Task (Notification Factory)
+```bash
+cd Design_Patterns/Factory_Pattern/Task
+g++ -std=c++17 -I. -o main.exe main.cpp *.hpp
+./main.exe
+```
+
+#### Strategy Pattern Task (Discount System)
+```bash
+cd Design_Patterns/Strategy_Pattern/Task
+g++ -std=c++17 -I. -o main.exe main.cpp *.hpp
+./main.exe
+```
+
+#### SOLID Principles E-commerce Example
+```bash
+cd Solid_Principles/Task
+g++ -std=c++17 -o Ecommerce.exe Ecommerce.cpp
+./Ecommerce.exe
+```
+
+### Build with CMake (External Project)
 ```bash
 cd grad-joi-delivery-cpp
 mkdir build && cd build
@@ -211,6 +322,30 @@ cmake --build .
 
 ---
 
+## 🎯 Pattern Task Examples Summary
+
+Each design pattern includes a practical **Task/** folder with real-world examples:
+
+| Pattern | Task Example | Description |
+|---------|--------------|-------------|
+| **Factory** | Notification Factory | Email, SMS, Push notification creators with factory |
+| **Decorator** | Notification System | Email base + SMS + WhatsApp decorators |
+| **Observer** | Event System | Subject/Observer with concrete implementations |
+| **Strategy** | Discount System | Regular, Premium, Festival discount strategies |
+| **Singleton** | - | Documentation only |
+| **Adapter** | - | Documentation only |
+
+### Quick Test Commands
+```bash
+# Test all pattern tasks
+cd Design_Patterns/Factory_Pattern/Task && g++ -std=c++17 -I. -o test.exe main.cpp *.hpp && ./test.exe
+cd Design_Patterns/Decorator_Pattern/Task && mkdir -p build && cd build && cmake .. && cmake --build . --config Debug && ./Debug/ObserverPattern.exe
+cd Design_Patterns/Strategy_Pattern/Task && g++ -std=c++17 -I. -o test.exe main.cpp *.hpp && ./test.exe
+cd Solid_Principles/Task && g++ -std=c++17 -o test.exe Ecommerce.cpp && ./test.exe
+```
+
+---
+
 ## 📝 Documentation Standards
 
 Each pattern/concept documentation includes:
@@ -232,6 +367,20 @@ Each pattern/concept documentation includes:
 - **Patterns**: Gang of Four (GoF)
 - **Principles**: SOLID (Robert C. Martin)
 - **Documentation**: Markdown with Mermaid diagrams
+
+---
+
+## 📊 Repository Statistics
+
+| Category | Count | Details |
+|----------|-------|---------|
+| **Design Patterns** | 6 | Factory, Singleton, Adapter, Decorator, Observer, Strategy |
+| **Pattern Tasks** | 4 | Factory, Decorator, Observer, Strategy have practical examples |
+| **OOP Concepts** | 14 | Abstraction, Encapsulation, Inheritance, Polymorphism, etc. |
+| **OOP Documentation** | 18 | Markdown files covering all concepts |
+| **SOLID Principles** | 5 | SRP, OCP, LSP, ISP, DIP |
+| **DSA Problems** | 30+ | Arrays (25), LinkedList (1), Strings (8) |
+| **Total C++ Files** | 50+ | Headers, sources, and executables |
 
 ---
 
