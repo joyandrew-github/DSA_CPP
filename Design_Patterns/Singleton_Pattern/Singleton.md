@@ -1,0 +1,2 @@
+Singleton Design Pattern in C++
+The Singleton Pattern is a creational design pattern that ensures a class has only one instance throughout the application and provides a global access point to that instance.
