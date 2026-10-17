@@ -13,6 +13,7 @@ include(FetchContent)
 FetchContent_Declare(
     googletest
     URL https://github.com/google/googletest/archive/refs/tags/v1.15.2.zip
+    DOWNLOAD_EXTRACT_TIMESTAMP TRUE
 )
 
 FetchContent_MakeAvailable(googletest)
@@ -35,7 +36,7 @@ add_executable(QuickCart
 
 target_include_directories(QuickCart PRIVATE include)
 
-# GoogleTest executable
+# Unit tests
 enable_testing()
 
 add_executable(QuickCartTests
@@ -46,8 +47,7 @@ add_executable(QuickCartTests
 target_include_directories(QuickCartTests PRIVATE include)
 
 target_link_libraries(QuickCartTests
-    PRIVATE
-    GTest::gtest_main
+    PRIVATE GTest::gtest_main
 )
 
 include(GoogleTest)
