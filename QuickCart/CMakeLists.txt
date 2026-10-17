@@ -15,6 +15,7 @@ add_executable(QuickCart
     src/LoyaltyService.cpp
     src/PricingService.cpp
     src/Order.cpp
+    src/OrderService.cpp
 )
 
 target_include_directories(QuickCart PRIVATE include)
