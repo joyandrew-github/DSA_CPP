@@ -6,6 +6,7 @@
 #include "models/Order.hpp"
 #include "services/LoyaltyService.hpp"
 #include "services/PricingService.hpp"
+#include "services/OrderService.hpp"
 
 int main()
 {
@@ -29,11 +30,19 @@ int main()
 
     cart.displayCart();
 
-    std::cout << "Subtotal: Rs. " << subtotal << '\n';
     std::cout << "Discount: Rs. " << discount << '\n';
     std::cout << "Final Amount: Rs. " << finalAmount << '\n';
 
-    Order order(101, 1, finalAmount);
+    Customer customer(1, "Joyandrew");
+    LoyaltyService loyaltyService;
+    OrderService orderService;
+
+    Order order = orderService.checkout(
+        101,
+        customer,
+        cart,
+        pricingservice,
+        loyaltyService);
 
     std::cout << "\n--- Order Details ---\n";
     std::cout << "Order ID     : " << order.getOrderId() << '\n';
