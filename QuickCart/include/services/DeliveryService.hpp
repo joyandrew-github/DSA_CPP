@@ -12,6 +12,6 @@ public:
     bool updateDeliveryStatus(
         Delivery& delivery,
         DeliveryPartner& partner,
-        const std::string& newStatus
+        DeliveryStatus newStatus
     )const;
 };

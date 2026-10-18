@@ -1,35 +1,40 @@
 #include "models/Delivery.hpp"
 
-Delivery::Delivery(int deliveryId,int orderId,int partnerId)
-:deliveryId(deliveryId),orderId(orderId),partnerId(partnerId),status("Assigned"){}
+Delivery::Delivery(int deliveryId, int orderId, int partnerId)
+    : deliveryId(deliveryId), orderId(orderId), partnerId(partnerId),
+      status(DeliveryStatus::Assigned) {}
 
-int Delivery::getDeliveryId()const{
+int Delivery::getDeliveryId() const {
     return deliveryId;
 }
 
-int Delivery::getOrderId()const{
+int Delivery::getOrderId() const {
     return orderId;
 }
 
-int Delivery::getPartnerId()const{
+int Delivery::getPartnerId() const {
     return partnerId;
 }
 
-std::string Delivery::getStatus()const{
+DeliveryStatus Delivery::getStatus() const {
     return status;
 }
 
-bool Delivery::updateStatus(const std::string& newStatus)
+std::string Delivery::getStatusString() const {
+    return deliveryStatusToString(status);
+}
+
+bool Delivery::updateStatus(DeliveryStatus newStatus)
 {
-    if (status == "Assigned" &&
-        newStatus == "In Transit")
+    if (status == DeliveryStatus::Assigned &&
+        newStatus == DeliveryStatus::InTransit)
     {
         status = newStatus;
         return true;
     }
 
-    if (status == "In Transit" &&
-        newStatus == "Delivered")
+    if (status == DeliveryStatus::InTransit &&
+        newStatus == DeliveryStatus::Delivered)
     {
         status = newStatus;
         return true;

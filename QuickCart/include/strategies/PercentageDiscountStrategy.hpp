@@ -2,6 +2,7 @@
 #define PERCENTAGE_DISCOUNT_STRATEGY_HPP
 
 #include "strategies/DiscountStrategy.hpp"
+#include "constants.hpp"
 #include <stdexcept>
 
 class PercentageDiscountStrategy : public DiscountStrategy {

@@ -1,13 +1,28 @@
 #pragma once
 #include <string>
 
+enum class DeliveryStatus {
+    Assigned,
+    InTransit,
+    Delivered
+};
+
+inline std::string deliveryStatusToString(DeliveryStatus status) {
+    switch (status) {
+        case DeliveryStatus::Assigned:    return "Assigned";
+        case DeliveryStatus::InTransit:   return "In Transit";
+        case DeliveryStatus::Delivered:   return "Delivered";
+        default:                          return "Unknown";
+    }
+}
+
 class Delivery
 {
 private:
     int deliveryId;
     int orderId;
     int partnerId;
-    std::string status;
+    DeliveryStatus status;
 
 public:
     Delivery(int deliveryId, int orderId, int partnerId);
@@ -15,7 +30,8 @@ public:
     int getDeliveryId() const;
     int getOrderId() const;
     int getPartnerId() const;
-    std::string getStatus() const;
+    DeliveryStatus getStatus() const;
+    std::string getStatusString() const;
 
-    bool updateStatus(const std::string &newStatus);
+    bool updateStatus(DeliveryStatus newStatus);
 };

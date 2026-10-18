@@ -1,11 +1,12 @@
 
 #include "repositories/ProductRepository.hpp"
+#include "constants.hpp"
 
 ProductRepository::ProductRepository() {
-    products.emplace_back(101, "Milk", 55.20);
-    products.emplace_back(102, "Bread", 35.20);
-    products.emplace_back(103, "Eggs", 72.00);
-    products.emplace_back(104, "Rice", 120.00);
+    products.emplace_back(quickcart::PRODUCT_ID_MILK, "Milk", quickcart::MILK_PRICE);
+    products.emplace_back(quickcart::PRODUCT_ID_BREAD, "Bread", quickcart::BREAD_PRICE);
+    products.emplace_back(quickcart::PRODUCT_ID_EGGS, "Eggs", quickcart::EGGS_PRICE);
+    products.emplace_back(quickcart::PRODUCT_ID_RICE, "Rice", quickcart::RICE_PRICE);
 }
 
 std::vector<Product> ProductRepository::getAllProducts() const {

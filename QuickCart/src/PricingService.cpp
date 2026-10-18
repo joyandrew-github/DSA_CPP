@@ -1,23 +1,29 @@
 #include "services/PricingService.hpp"
+#include "strategies/NoDiscountStrategy.hpp"
+#include "strategies/PercentageDiscountStrategy.hpp"
+#include <memory>
 
-double PricingService::calculateDiscount(double subtotal)const{
-if(subtotal<0){
-    return 0.0;
-}
-if(subtotal>=1000){
-    return subtotal*0.10;
+PricingService::PricingService()
+    : strategy_(std::make_unique<NoDiscountStrategy>()) {}
+
+PricingService::PricingService(std::unique_ptr<DiscountStrategy> strategy)
+    : strategy_(std::move(strategy)) {}
+
+void PricingService::setStrategy(std::unique_ptr<DiscountStrategy> strategy) {
+    strategy_ = std::move(strategy);
 }
 
-if(subtotal>=500){
-    return subtotal*0.05;
-}
-return 0.0;
-}
-
-double PricingService::calculateFinalAmount(double subtotal)const{
-    if(subtotal<0){
+double PricingService::calculateDiscount(double subtotal) const {
+    if (subtotal < 0.0) {
         return 0.0;
     }
-    double discount=calculateDiscount(subtotal);
-    return subtotal-discount;
+    return strategy_->calculateDiscount(subtotal);
+}
+
+double PricingService::calculateFinalAmount(double subtotal) const {
+    if (subtotal < 0.0) {
+        return 0.0;
+    }
+    double discount = calculateDiscount(subtotal);
+    return subtotal - discount;
 }

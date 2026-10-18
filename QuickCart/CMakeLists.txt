@@ -18,53 +18,10 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(googletest)
 
-# QuickCart application
-add_executable(QuickCart
-    src/main.cpp
-    src/Product.cpp
-    src/ShoppingCart.cpp
-    src/CartItem.cpp
-    src/Customer.cpp
-    src/LoyaltyService.cpp
-    src/PricingService.cpp
-    src/Order.cpp
-    src/OrderService.cpp
-    src/Delivery.cpp
-    src/DeliveryPartner.cpp
-    src/DeliveryService.cpp
-)
-
-target_include_directories(QuickCart PRIVATE include)
+# Subdirectories
+add_subdirectory(common)
+add_subdirectory(src)
+add_subdirectory(tests)
 
 # Unit tests
 enable_testing()
-
-add_executable(QuickCartTests
-    tests/ProductTest.cpp
-    tests/ShoppingCartTest.cpp
-    tests/PricingServiceTest.cpp
-    tests/OrderServiceTest.cpp
-    tests/DeliveryServiceTest.cpp
-    tests/CartItemTest.cpp
-
-    src/Product.cpp
-    src/CartItem.cpp
-    src/ShoppingCart.cpp
-    src/PricingService.cpp
-    src/Customer.cpp
-    src/LoyaltyService.cpp
-    src/Order.cpp
-    src/OrderService.cpp
-    src/Delivery.cpp
-    src/DeliveryPartner.cpp
-    src/DeliveryService.cpp
-)
-
-target_include_directories(QuickCartTests PRIVATE include)
-
-target_link_libraries(QuickCartTests
-    PRIVATE GTest::gtest_main
-)
-
-include(GoogleTest)
-gtest_discover_tests(QuickCartTests)

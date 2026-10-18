@@ -20,14 +20,14 @@ bool DeliveryService::assignDelivery(
 bool DeliveryService::updateDeliveryStatus(
     Delivery &delivery,
     DeliveryPartner &partner,
-    const std::string &newStatus) const
+    DeliveryStatus newStatus) const
 {
     if (!delivery.updateStatus(newStatus))
     {
         return false;
     }
 
-    if (newStatus == "Delivered")
+    if (newStatus == DeliveryStatus::Delivered)
     {
         partner.setAvailability(true);
     }

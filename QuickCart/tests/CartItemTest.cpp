@@ -2,10 +2,11 @@
 #include <gtest/gtest.h>
 #include "models/Product.hpp"
 #include "models/CartItem.hpp"
+#include "constants.hpp"
 
 TEST(CartItemTest, CalculatesTotalPrice)
 {
-    Product milk(101, "Milk", 55.20);
+    Product milk(quickcart::PRODUCT_ID_MILK, "Milk", quickcart::MILK_PRICE);
 
     CartItem item(milk);
 

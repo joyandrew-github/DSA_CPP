@@ -1,5 +1,6 @@
 
 #include <gtest/gtest.h>
+#include <memory>
 
 #include "models/Product.hpp"
 #include "models/ShoppingCart.hpp"
@@ -8,17 +9,21 @@
 #include "services/OrderService.hpp"
 #include "services/PricingService.hpp"
 #include "services/LoyaltyService.hpp"
+#include "strategies/PercentageDiscountStrategy.hpp"
+#include "constants.hpp"
 
 TEST(OrderServiceTest, CheckoutAppliesDiscountAndCreatesOrder)
 {
-    Product laptop(101, "Laptop", 1200.00);
+    Product laptop(quickcart::PRODUCT_ID_MILK, "Laptop", 1200.00);
 
     ShoppingCart cart;
     cart.addProduct(laptop);
 
     Customer customer(1, "Alex");
 
-    PricingService pricingService;
+    PricingService pricingService(
+        std::make_unique<PercentageDiscountStrategy>(
+            quickcart::DISCOUNT_RATE_HIGH * 100.0));
     LoyaltyService loyaltyService;
     OrderService orderService;
 

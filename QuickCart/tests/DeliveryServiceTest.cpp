@@ -13,7 +13,7 @@ TEST(DeliveryServiceTest, AssignDeliveryToAvailablePartner)
     EXPECT_TRUE(service.assignDelivery(delivery, partner));
     EXPECT_FALSE(partner.isAvailable());
 
-    EXPECT_EQ(delivery.getStatus(), "Assigned");
+    EXPECT_EQ(delivery.getStatus(), DeliveryStatus::Assigned);
 }
 
 
@@ -26,14 +26,14 @@ TEST(DeliveryServiceTest, CompleteDeliveryRestoresPartnerAvailability)
     ASSERT_TRUE(service.assignDelivery(delivery, partner));
 
     EXPECT_TRUE(
-        service.updateDeliveryStatus(delivery, partner, "In Transit")
+        service.updateDeliveryStatus(delivery, partner, DeliveryStatus::InTransit)
     );
 
     EXPECT_TRUE(
-        service.updateDeliveryStatus(delivery, partner, "Delivered")
+        service.updateDeliveryStatus(delivery, partner, DeliveryStatus::Delivered)
     );
 
-    EXPECT_EQ(delivery.getStatus(), "Delivered");
+    EXPECT_EQ(delivery.getStatus(), DeliveryStatus::Delivered);
     EXPECT_TRUE(partner.isAvailable());
 }
 
@@ -47,8 +47,8 @@ TEST(DeliveryServiceTest, RejectInvalidStatusTransition)
     ASSERT_TRUE(service.assignDelivery(delivery, partner));
 
     EXPECT_FALSE(
-        service.updateDeliveryStatus(delivery, partner, "Assigned")
+        service.updateDeliveryStatus(delivery, partner, DeliveryStatus::Assigned)
     );
 
-    EXPECT_EQ(delivery.getStatus(), "Assigned");
+    EXPECT_EQ(delivery.getStatus(), DeliveryStatus::Assigned);
 }

@@ -2,10 +2,11 @@
 #include <string>
 #include "models/Product.hpp"
 #include "models/ShoppingCart.hpp"
+#include "constants.hpp"
 
 TEST(ShoppingCartTest,AddProductAndCalculateSubTotal)
 {
-    Product milk(101,"Milk",132.00);
+    Product milk(quickcart::PRODUCT_ID_MILK,"Milk",132.00);
 
     ShoppingCart cart;
     cart.addProduct(milk);
@@ -17,8 +18,8 @@ TEST(ShoppingCartTest,AddProductAndCalculateSubTotal)
 
 TEST(ShoppingCartTest, AddDifferentProductsAndCalculateSubtotal)
 {
-    Product milk(101, "Milk", 55.20);
-    Product bread(102, "Bread", 40.00);
+    Product milk(quickcart::PRODUCT_ID_MILK, "Milk", quickcart::MILK_PRICE);
+    Product bread(quickcart::PRODUCT_ID_BREAD, "Bread", 40.00);
 
     ShoppingCart cart;
 
@@ -31,7 +32,7 @@ TEST(ShoppingCartTest, AddDifferentProductsAndCalculateSubtotal)
 
 TEST(ShoppingCartTest, AddingSameProductTwiceUpdatesSubtotal)
 {
-    Product milk(101, "Milk", 55.20);
+    Product milk(quickcart::PRODUCT_ID_MILK, "Milk", quickcart::MILK_PRICE);
 
     ShoppingCart cart;
 
@@ -42,9 +43,10 @@ TEST(ShoppingCartTest, AddingSameProductTwiceUpdatesSubtotal)
     EXPECT_DOUBLE_EQ(cart.getSubTotal(), 110.40);
 }
 
+
 TEST(ShoppingCartTest, SameProductIsDisplayedWithQuantityTwo)
 {
-    Product milk(101, "Milk", 55.20);
+    Product milk(quickcart::PRODUCT_ID_MILK, "Milk", quickcart::MILK_PRICE);
 
     ShoppingCart cart;
     cart.addProduct(milk);
