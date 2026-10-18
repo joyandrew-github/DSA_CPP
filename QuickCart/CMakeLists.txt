@@ -19,7 +19,6 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 
 # Subdirectories
-add_subdirectory(common)
 add_subdirectory(src)
 add_subdirectory(tests)
 
