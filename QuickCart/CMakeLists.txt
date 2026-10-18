@@ -40,8 +40,24 @@ target_include_directories(QuickCart PRIVATE include)
 enable_testing()
 
 add_executable(QuickCartTests
+    tests/ProductTest.cpp
+    tests/ShoppingCartTest.cpp
     tests/PricingServiceTest.cpp
+    tests/OrderServiceTest.cpp
+    tests/DeliveryServiceTest.cpp
+    tests/CartItemTest.cpp
+
+    src/Product.cpp
+    src/CartItem.cpp
+    src/ShoppingCart.cpp
     src/PricingService.cpp
+    src/Customer.cpp
+    src/LoyaltyService.cpp
+    src/Order.cpp
+    src/OrderService.cpp
+    src/Delivery.cpp
+    src/DeliveryPartner.cpp
+    src/DeliveryService.cpp
 )
 
 target_include_directories(QuickCartTests PRIVATE include)

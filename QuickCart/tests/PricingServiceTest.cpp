@@ -29,3 +29,11 @@ TEST(PricingServiceTest,TenPercentDiscountAt1000)
     EXPECT_DOUBLE_EQ(discount,120.0);
 } 
 
+TEST(PricingServiceTest, NoDiscountJustBelow500)
+{
+    PricingService pricingService;
+
+    double discount = pricingService.calculateDiscount(499.99);
+
+    EXPECT_DOUBLE_EQ(discount, 0.0);
+}
