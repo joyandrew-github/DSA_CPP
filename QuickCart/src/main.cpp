@@ -156,6 +156,11 @@
 #include "services/OrderService.hpp"
 #include "services/DeliveryService.hpp"
 
+
+#include "services/PricingService.hpp"
+#include "strategies/NoDiscountStrategy.hpp"
+#include "strategies/PercentageDiscountStrategy.hpp"
+
 int main()
 {
     // 1. Create products
@@ -171,30 +176,26 @@ int main()
     cart.displayCart();
 
     // 3. Calculate pricing
-    PricingService pricingservice;
+        PricingService pricingService;
+        double subtotal = cart.getSubTotal();
+        double discount = pricingService.calculateDiscount(subtotal);
+        double finalAmount = pricingService.calculateFinalAmount(subtotal);
 
-    double subtotal = cart.getSubTotal();
-    double discount = pricingservice.calculateDiscount(subtotal);
-    double finalAmount = pricingservice.calculateFinalAmount(subtotal);
+        std::cout << std::fixed << std::setprecision(2);
+        std::cout << "Discount: Rs. " << discount << '\n';
+        std::cout << "Final Amount: Rs. " << finalAmount << '\n';
 
-    std::cout << "Discount: Rs. "
-              << std::fixed << std::setprecision(2)
-              << discount << '\n';
+        // 4. Create customer and checkout
+        Customer customer(1, "Joyandrew");
+        LoyaltyService loyaltyService;
+        OrderService orderService;
 
-    std::cout << "Final Amount: Rs. "
-              << finalAmount << '\n';
-
-    // 4. Create customer and checkout
-    Customer customer(1, "Joyandrew");
-    LoyaltyService loyaltyService;
-    OrderService orderService;
-
-    Order order = orderService.checkout(
-        101,
-        customer,
-        cart,
-        pricingservice,
-        loyaltyService);
+        Order order = orderService.checkout(
+            101,
+            customer,
+            cart,
+            pricingService,
+            loyaltyService);
 
     std::cout << "\n--- Order Details ---\n";
     std::cout << "Order ID     : " << order.getOrderId() << '\n';
