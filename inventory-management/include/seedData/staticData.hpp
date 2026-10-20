@@ -1,7 +1,7 @@
 #ifndef STATIC_DATA_HPP
 #define STATIC_DATA_HPP
 
-#include "model/Category.hpp"
+#include "../model/Category.hpp"
 #include <vector>
 
 inline std::vector<Category> getStaticCategories() {
